@@ -1,0 +1,15 @@
+<h2>Beer Ratings</h2>
+<p>
+	Ratings count: <%= "#{@ratings.count}" %>
+</p>
+
+<table>
+	<th>Beer</th>
+	<th>Score</th>
+	<% @ratings.each do |rating| %>
+		<tr>
+			<td><%= rating.beer.name %></td>
+			<td><%= rating.score %></td>
+		</tr>
+	<% end %>
+</table>

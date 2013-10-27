@@ -20,6 +20,7 @@ end
 
 gem 'jquery-rails'
 
+gem 'seed_dump', '0.5.3'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -42,4 +43,5 @@ end
 group :production do
 	gem 'pg'
 	gem 'rails_stdout_logging'
+	gem 'rails_12factor'
 end
