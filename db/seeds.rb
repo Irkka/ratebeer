@@ -36,7 +36,8 @@ Rating.create([
   { :score => 40, :beer_id => 8, :created_at => "2013-10-27 13:02:11", :updated_at => "2013-10-27 13:02:11" },
   { :score => 5, :beer_id => 10, :created_at => "2013-10-27 13:02:55", :updated_at => "2013-10-27 13:02:55" },
   { :score => 15, :beer_id => 10, :created_at => "2013-10-27 13:02:55", :updated_at => "2013-10-27 13:02:55" },
-  { :score => 10, :beer_id => 10, :created_at => "2013-10-27 13:02:55", :updated_at => "2013-10-27 13:02:55" }
+  { :score => 10, :beer_id => 10, :created_at => "2013-10-27 13:02:55", :updated_at => "2013-10-27 13:02:55" },
+  { :score => 20, :beer_id => 2, :created_at => "2013-10-27 17:49:08", :updated_at => "2013-10-27 17:49:08" }
 ], :without_protection => true )
 
 

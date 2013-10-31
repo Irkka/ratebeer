@@ -54,7 +54,10 @@ module Ratebeer
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = true
+		config.assets.enabled = true
+		
+		# Fix the problem with git push heroku master https://devcenter.heroku.com/articles/rails-asset-pipeline
+		config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

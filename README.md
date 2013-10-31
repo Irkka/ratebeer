@@ -4,4 +4,4 @@ ratebeer
 Beer rating App for school
 
 Heroku:
-http://secret-reef-9111.herokuapp.com
+http://spooky-retreat-6700.herokuapp.com/
