@@ -3,6 +3,7 @@
 	Ratings count: <%= "#{@ratings.count}" %>
 </p>
 
+<%= link_to "Rate a Beer!", new_rating_path %>
 <table>
 	<th>Beer</th>
 	<th>Score</th>
@@ -11,5 +12,4 @@
 			<td><%= rating.beer.name %></td>
 			<td><%= rating.score %></td>
 		</tr>
-	<% end %>
-</table>
+	<% end %> </table>

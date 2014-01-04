@@ -1,20 +1,25 @@
 class Beer < ActiveRecord::Base
-	attr_accessible :brewery_id, :name, :style
+		include RatingAverage
 
-	belongs_to :brewery
-	has_many :ratings
+		attr_accessible :brewery_id, :name, :style
 
-	def average_rating
-		@ratings = self.ratings
-		if @ratings.count.!=0
-			total = 0
-			@ratings.each do |rating|
-				total += rating.score	
-			end
-			total = total / ratings.count
-			total
-		else
-			0
+		belongs_to :brewery
+		has_many :ratings, :dependent => :destroy
+		has_many :raters, through: :ratings, source: :user
+
+		validates_uniqueness_of :name
+		validates_length_of :name, in: 1..20, allow_blank: false
+		#validates :name, presence: true, allow_blank: false
+
+		#def average_rating
+				#if self.ratings.average("score").nil?
+						#"N/A"
+				#else
+						#self.ratings.average("score").round(2)
+				#end
+		#end
+
+		def to_s
+				"#{self.name}/#{self.brewery.name}"
 		end
-	end
 end
