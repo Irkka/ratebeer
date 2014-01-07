@@ -36,7 +36,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger', :group => :development
+#gem 'debugger', :group => :development
 gem 'pry-rails', :group => :development
 
 group :test do

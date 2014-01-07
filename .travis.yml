@@ -1,10 +1,15 @@
 language: ruby
-
 rvm:
- - 1.9.3
-
+- 1.9.3
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -f d spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -f d spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: A5J4UyXIw/aNPVV99IqWcdwlkAxjwuswBrkSFJr+iZHG0DEyNz9ITNx/PIuCj4Htuu9d3u+xujzpcurF+YowAOpD6EISZStoOjACTOR/s/4ac4d6K/ee2zfw+tTfTpiaE536chGyWxvJqPiN8qF513fooUABjP1j0fTty6diyF8=
+  app: spooky-retreat-6700
+  on:
+    repo: Irkka/ratebeer
