@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/irkka/ratebeer.png)](https://travis-ci.org/irkka/ratebeer)
 ratebeer
 ========
 
