@@ -7,8 +7,8 @@ class Beer < ActiveRecord::Base
 		has_many :ratings, :dependent => :destroy
 		has_many :raters, through: :ratings, source: :user
 
-		validates_uniqueness_of :name
-		validates_length_of :name, in: 1..20, allow_blank: false
+		validates_presence_of :style
+		validates_length_of :name, in: 1..20
 		#validates :name, presence: true, allow_blank: false
 
 		#def average_rating

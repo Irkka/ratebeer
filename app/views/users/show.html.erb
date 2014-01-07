@@ -8,6 +8,8 @@
 			Average rating:	<%= @user.average_rating %>
 	</li>
 	<li>Has given: <%= @user.ratings.count %> ratings</li>
+	<li>Favorite beer: <%= @user.favorite_beer %></li>
+	<li>Favorite brewery: <%= @user.favorite_brewery %></li>
 </ul>
 
 <% unless @user.beer_clubs.nil? %>
