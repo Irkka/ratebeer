@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 		include RatingAverage
 
-		attr_accessible :username, :password, :password_confirmation
+		attr_accessible :username, :password, :password_confirmation, :admin
 		has_secure_password
 
 		has_many :ratings, dependent: :destroy
