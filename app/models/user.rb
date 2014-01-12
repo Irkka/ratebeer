@@ -14,14 +14,19 @@ class User < ActiveRecord::Base
 		validates_length_of :password, minimum: 4
 		validates :password, format: /[\w\W]*[\W[:digit:]][\w\W]*/
 
+		def admin?
+				return @admin
+		end
+
 		def favorite_beer
 				return nil if ratings.empty?
 				ratings.sort_by{ |r| r.score }.last.beer
 		end
 
 		def favorite_style
-				styles = beers.collect { |b| b.style }.uniq
+				styles = beers.collect { |b| b }.uniq
 				style_scores = Hash.new
+				binding.pry
 				styles.each do |s|
 						beer_count = beers.where(:style_id => s).count
 						style_total = beers.where(:style_id => s).collect { |b| b.ratings }.flatten.inject(0) {|result, rating| result + rating.score }
@@ -29,7 +34,7 @@ class User < ActiveRecord::Base
 						style_scores[s] = style_total / beer_count
 				end
 				#binding.pry
-				style_scores.max_by{|k,v| v}[0].name
+				style_scores.max_by{|k,v| v}[0]
 		rescue
 				"no beers rated yet"
 		end

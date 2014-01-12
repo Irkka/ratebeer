@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Beer do
 		let(:brewery) { Brewery.create name: "Hello Brewery", year: 1900 }
-		let(:beer) { FactoryGirl.create(:testing_beer, :name => "Hello?") }
+		let(:beer) { FactoryGirl.create(:beer) }
 		describe "is not saved" do
 
 				it "when beer has no name" do

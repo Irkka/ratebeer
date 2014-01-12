@@ -46,6 +46,8 @@ class BeersController < ApplicationController
 		# GET /beers/1/edit
 		def edit
 				@beer = Beer.find(params[:id])
+				@breweries = Brewery.all
+				@styles = Style.all
 		end
 
 		# POST /beers
@@ -83,6 +85,7 @@ class BeersController < ApplicationController
 		# DELETE /beers/1
 		# DELETE /beers/1.json
 		def destroy
+				redirect_to beers_path unless current_user.admin?
 				@beer = Beer.find(params[:id])
 				@beer.destroy
 

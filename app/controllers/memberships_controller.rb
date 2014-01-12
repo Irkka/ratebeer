@@ -42,6 +42,7 @@ class MembershipsController < ApplicationController
 		# POST /memberships.json
 		def create
 				@beer_club = BeerClub.find_by_id params[:membership][:beer_club_id]
+				redirect_to :back, notice: "No such beer club" if @beer_club.nil?
 				raise CustomExceptions::AlreadyMemberException if @beer_club.users.include? current_user
 				@membership = Membership.new(params[:membership])
 				@membership[:user_id] = current_user.id

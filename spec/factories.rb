@@ -23,15 +23,20 @@ FactoryGirl.define do
 				year 1900
 		end
 
+		factory :style do
+				name "Lager"
+				description "Basic beer"
+		end
+
 		factory :beer do
 				name "anonymous"
 				brewery
-				style Style.new :name => "Beer Perkele"
+				style
 		end
 
 		factory :testing_beer, :class => Beer do
 				brewery
-				style Style.new :name => "Ale"
+				style
 		end
 
 end

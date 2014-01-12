@@ -1,14 +1,14 @@
 <h1>Listing beers</h1>
 
-<table>
-		<tr>
+<table class="table table-hover">
+		<thead>
 				<th><%= link_to 'Name', beers_path(:order => "name") %></th>
 				<th><%= link_to 'Style', beers_path(:order => "style") %></th>
 				<th><%= link_to 'Brewery', beers_path(:order => "brewery") %></th>
 				<th>Score Average</th>
 				<th></th>
 				<th></th>
-		</tr>
+		</thead>
 
 		<% @beers.each do |beer| %>
 				<tr>
@@ -17,11 +17,10 @@
 						<td><%= link_to "#{ beer.brewery.name }", beer.brewery %></td>
 						<td><%= "#{ beer.average_rating }" %></td>
 						<td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-						<td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 				</tr>
 		<% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Beer', new_beer_path %>
+<%= link_to 'New Beer', new_beer_path, :class => 'btn btn-primary' %>
