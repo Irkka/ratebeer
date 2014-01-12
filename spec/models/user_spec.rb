@@ -7,6 +7,8 @@ describe User do
 		let(:brewery2) {FactoryGirl.create(:brewery, :name => "Test Brewery")}
 		#let(:beer0) { FactoryGirl.create(:beer)}
 		let(:beer) { FactoryGirl.create(:testing_beer, :name => "Hello Beer?")}
+		let(:style) { Style.new :name => "Hell of a beer"}
+		let(:style2) { Style.new :name => "Good Beer of a beer"}
 		#let(:rating1){ FactoryGirl.create(:rating, :beer => beer1, :score => 10, :user => user)}
 		#let(:rating2) { FactoryGirl.create(:rating, :beer => beer2, :score => 34, :user => user)}
 		#let(:rating3) { FactoryGirl.create(:rating, :beer => beer3, :score => 20, :user => user)}
@@ -33,13 +35,17 @@ describe User do
 				end
 
 				it "is the one with highest rating if several ratings exist" do
-						beer1 = Beer.new( { :name => "Perkele", :style => "Hell of a beer" } )
+						#beer1 = Beer.new( { :name => "Perkele", :style => "Hell of a beer" } )
+						beer1 = Beer.new( { name:"Perkele"} )
+						beer1.style = style
 						beer1.brewery = brewery
 						beer1.save
-						beer2 = Beer.new( { name:"Ahti", :style => "Hell of a beer"} )
+						beer2 = Beer.new( { name:"Ahti"} )
+						beer2.style = style
 						beer2.brewery = brewery
 						beer2.save
-						beer3 = Beer.new( { name:"Saatana", :style => "Hell of a beer" } )
+						beer3 = Beer.new( { name:"Saatana" } )
+						beer3.style = style
 						beer3.brewery = brewery
 						beer3.save
 						rating1 = Rating.new( { score:30 } )
@@ -60,13 +66,19 @@ describe User do
 
 		describe "favorite style" do
 				it "is the one with best average ratings" do
-						beer1 = Beer.new( { :name => "Perkele", :style => "Hell of a beer" } )
+						#beer1 = Beer.new( { :name => "Perkele", :style => "Hell of a beer" } )
+						beer1 = Beer.new( { name:"Perkele" } )
+						beer1.style = style
 						beer1.brewery = brewery
 						beer1.save
-						beer2 = Beer.new( { name:"Ahti", :style => "Hell of a beer"} )
+						#beer2 = Beer.new( { name:"Ahti", :style => "Hell of a beer"} )
+						beer2 = Beer.new( { name:"Ahti" } )
+						beer2.style = style
 						beer2.brewery = brewery
 						beer2.save
-						beer3 = Beer.new( { name:"Saatana", :style => "Good Beer" } )
+						#beer3 = Beer.new( { name:"Saatana", :style => "Good Beer" } )
+						beer3 = Beer.new( { name:"Saatana" } )
+						beer3.style = style2
 						beer3.brewery = brewery
 						beer3.save
 						rating1 = Rating.new( { score:30 } )
@@ -85,13 +97,19 @@ describe User do
 
 		describe "favorite brewery" do
 				it "is the one with best average ratings" do
-						beer1 = Beer.new( { :name => "Perkele", :style => "Hell of a beer" } )
+						#beer1 = Beer.new( { :name => "Perkele", :style => "Hell of a beer" } )
+						beer1 = Beer.new( { name:"Perkele" } )
+						beer1.style = style
 						beer1.brewery = brewery
 						beer1.save
-						beer2 = Beer.new( { name:"Ahti", :style => "Hell of a beer"} )
+						#beer2 = Beer.new( { name:"Ahti", :style => "Hell of a beer"} )
+						beer2 = Beer.new( { name:"Ahti" } )
+						beer2.style = style
 						beer2.brewery = brewery2
 						beer2.save
-						beer3 = Beer.new( { name:"Saatana", :style => "Good Beer" } )
+						#beer3 = Beer.new( { name:"Saatana", :style => "Good Beer" } )
+						beer3 = Beer.new( { name:"Saatana" } )
+						beer3.style = style2
 						beer3.brewery = brewery
 						beer3.save
 						rating1 = Rating.new( { score:30 } )

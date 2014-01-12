@@ -1,0 +1,30 @@
+<h1>Beer places search</h1>
+
+<%= form_tag places_path do %>
+		city <%= text_field_tag :city, params[:city] %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<% if @places %>
+		<table cellspacing="0">
+				<thead>
+						<% Place.rendered_fields.each do |f| %>
+								<td><%= f %></td>
+						<% end %>
+				</thead>
+				<% @places.each do |place| %>
+						<tr>
+								<% Place.rendered_fields.each do |f| %>
+										<td>
+												<% if f == :id %>
+														<%= link_to(place.send(:name), "#{places_path}/#{place.send(f)}") %>
+												<% else %>
+														<%= place.send(f) %>
+												<% end %>
+										</td>
+								<% end %>
+						</tr>
+				<% end %>
+		</table>
+<% end %>

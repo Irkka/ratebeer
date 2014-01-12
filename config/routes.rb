@@ -1,24 +1,26 @@
 Ratebeer::Application.routes.draw do
 
-  resources :memberships
 
-
-  resources :beer_clubs
-
-
-  resources :users
 	get 'signup', to: 'users#new'
 	get 'signin', to: 'sessions#new'
 	delete 'signout', to: 'sessions#destroy'
+
+	get 'beerlist', to: 'beers#list'
+	#get 'places', to: 'places#index'
+	resources :places, :only => [:index, :show]
+	post 'places', to: 'places#search'
+
+  resources :users
 	resources :sessions, only: [:new, :create, :destroy]
-
-
   resources :beers
   resources :breweries
+  resources :memberships
+  resources :beer_clubs
   #get 'ratings', :to => 'ratings#index'
 	#get 'ratings/new', :to => 'ratings#new'
 	#post 'ratings', :to => 'ratings#create'
 	resources :ratings, :only => [:index, :new, :create, :destroy]
+	resources :styles, :only => [:index, :show, :new, :create, :destroy]
 
 
   # The priority is based upon order of creation:

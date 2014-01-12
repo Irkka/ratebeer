@@ -5,7 +5,7 @@ class BreweriesController < ApplicationController
 		# GET /breweries
 		# GET /breweries.json
 		def index
-				@breweries = Brewery.all
+				@breweries = Brewery.all.sort_by { |b| b.send(params[:order] || 'name') }
 
 				respond_to do |format|
 						format.html # index.html.erb

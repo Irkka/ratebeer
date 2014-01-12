@@ -16,6 +16,7 @@ group :assets do
 		# gem 'therubyracer', :platforms => :ruby
 
 		gem 'uglifier', '>= 1.0.3'
+		gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
@@ -38,12 +39,17 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 #gem 'debugger', :group => :development
 gem 'pry-rails', :group => :development
+gem 'httparty'
+gem 'rails-settings-cached', '0.2.4'
 
 group :test do
 		gem 'factory_girl_rails'
 		gem 'capybara'
 		gem 'launchy'
 		gem 'simplecov', :require => false
+		gem 'webmock'
+		gem 'selenium-webdriver'
+		gem 'database_cleaner', '< 1.1.0'
 end
 
 group :development, :test do

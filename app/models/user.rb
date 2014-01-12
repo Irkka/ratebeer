@@ -23,13 +23,13 @@ class User < ActiveRecord::Base
 				styles = beers.collect { |b| b.style }.uniq
 				style_scores = Hash.new
 				styles.each do |s|
-						beer_count = beers.where(:style => s).count
-						style_total = beers.where(:style => s).collect { |b| b.ratings }.flatten.inject(0) {|result, rating| result + rating.score }
+						beer_count = beers.where(:style_id => s).count
+						style_total = beers.where(:style_id => s).collect { |b| b.ratings }.flatten.inject(0) {|result, rating| result + rating.score }
 						#binding.pry
 						style_scores[s] = style_total / beer_count
 				end
 				#binding.pry
-				style_scores.max_by{|k,v| v}[0]
+				style_scores.max_by{|k,v| v}[0].name
 		rescue
 				"no beers rated yet"
 		end
