@@ -1,7 +1,7 @@
 class Brewery < ActiveRecord::Base
 		include RatingAverage
 
-		attr_accessible :name, :year
+		attr_accessible :name, :year, :active
 
 		has_many :beers
 		has_many :ratings, through: :beers
@@ -10,6 +10,9 @@ class Brewery < ActiveRecord::Base
 		#validates_numericality_of :year, {greater_than_or_equal_to: 1042, less_than_or_equal_to: 2014}
 		validates_length_of :name, in: 1..20, allow_blank: false
 		validate :year_cannot_be_less_than, :year_cannot_be_more_than
+
+		scope :active, where(:active => true)
+		scope :retired, where(:active => [nil, false])
 
 		def year_cannot_be_less_than
 				if year.present? and not year >= 1042

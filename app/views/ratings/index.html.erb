@@ -12,6 +12,6 @@
 		<% @ratings.each do |rating| %>
 				<tr>
 						<td><%= rating.beer.name %></td>
-						<td><%= rating.score %></td>
+						<td><%= round(rating.score) %></td>
 				</tr>
 		<% end %> </table>

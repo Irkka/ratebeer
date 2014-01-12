@@ -3,7 +3,7 @@ class BeermappingAPI
 		def self.places_in city
 				Place
 				city = city.downcase
-				Rails.cache.write(city, { :places => fetch_places_in(city) }, expires_in: 1.minute) unless Rails.cache.exist? city
+				Rails.cache.write(city, { :places => fetch_places_in(city) }, expires_in: 1.hour) unless Rails.cache.exist? city
 				#binding.pry
 				Rails.cache.read(city)[:places]
 		end

@@ -4,9 +4,11 @@
 	<li><b>Username: </b>
   <%= @user.username %>
 	</li>
+	<% unless @user.ratings.empty? %>
 	<li>
 			Average rating:	<%= @user.average_rating %>
 	</li>
+	<% end %>
 	<li>Has given: <%= @user.ratings.count %> ratings</li>
 	<li>Favorite beer: <%= @user.favorite_beer %></li>
 	<li>Favorite brewery: <%= @user.favorite_brewery %></li>

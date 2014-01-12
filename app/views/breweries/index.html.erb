@@ -3,24 +3,10 @@
 		Number of breweries: <%= @breweries.count %>
 </p>
 
-<table class="table table-hover">
-		<thead>
-				<th><%= link_to 'Name', breweries_path(:order => 'name') %></th>
-				<th><%= link_to 'Year', breweries_path(:order => 'year') %></th>
-				<th></th>
-				<th></th>
-				<th></th>
-		</thead>
+<p>Number of active breweries <%= @active_breweries.count %></p>
+<%= render 'list', :breweries => @active_breweries %>
 
-		<% @breweries.each do |brewery| %>
-				<tr>
-						<td><%= link_to brewery.name, brewery %></td>
-						<td><%= brewery.year %></td>
-						<td><%= link_to 'Show', brewery %></td>
-				</tr>
-		<% end %>
-</table>
-
-<br />
+<p>Number of retired breweries <%= @retired_breweries %></p>
+<%= render 'list', :breweries => @retired_breweries %>
 
 <%= link_to 'New Brewery', new_brewery_path %>

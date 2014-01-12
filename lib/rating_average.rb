@@ -10,7 +10,7 @@
 module RatingAverage
 
 		def average_rating
-				sum = self.ratings.inject 0 do |result, element|
+				sum = self.ratings.inject 0.0 do |result, element|
 						result += element.score
 				end
 				sum / self.ratings.count

@@ -4,6 +4,10 @@
 	<%= @brewery.name %>
 </h2>
 
+<% unless @brewery.active %>
+				<span class="label">Retired</span>
+<% end %>
+
 <p>
   <b>Year:</b>
   <%= @brewery.year %>

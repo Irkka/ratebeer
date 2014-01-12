@@ -17,13 +17,16 @@ class PlacesController < ApplicationController
 
 		def search
 				city = params[:city]
-				session[:last_searched_city] = city
-				@places = BeermappingAPI.places_in(city)
-				#binding.pry
-				if @places.empty?
-						redirect_to places_path, :notice => "No locations in #{city}"
+				if city == ""
+						redirect_to places_path, :notice => "Enter a valid city"
 				else
-						render :index
+						session[:last_searched_city] = city
+						@places = BeermappingAPI.places_in(city)
+						if @places.empty?
+								redirect_to places_path, :notice => "No locations in #{city}"
+						else
+								render :index
+						end
 				end
 		end
 end
