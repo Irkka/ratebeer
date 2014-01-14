@@ -2,7 +2,8 @@ class ChangeDataTypeForStyleInBeer < ActiveRecord::Migration
   def up
 			change_table :beers do |t|
 					#t.change :style, :integer
-					t.change :style, 'integer USING CAST(style AS integer)'
+					#t.change :style, 'integer USING CAST(style AS integer)'
+					t.change :style, :integer
 					t.rename :style, :style_id
 			end
   end
